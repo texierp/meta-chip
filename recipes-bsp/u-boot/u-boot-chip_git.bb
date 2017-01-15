@@ -7,16 +7,16 @@ LIC_FILES_CHKSUM = "file://Licenses/README;md5=0507cd7da8e7ad6d6701926ec9b84c95"
 DEPENDS += "dtc-native"
 PROVIDES += "u-boot"
 
-UBOOT_VERSION ?= "2015.07"
+UBOOT_VERSION ?= "2016.01"
 PV = "${UBOOT_VERSION}+git${SRCPV}"
 
-SRCREV ?= "854d5fcc641d8d8914c03a69d7172815d5b81a99"
-BRANCH ?= "chip/stable"
+SRCREV ?= "ccd1de00d52ef6b09a2d0990d1bd9254ecc18f88"
+BRANCH ?= "production-mlc"
 SRC_URI = "git://github.com/NextThingCo/CHIP-u-boot.git;branch=${BRANCH}"
 S = "${WORKDIR}/git"
 
-do_compile_append() {
-    install ${B}/spl/${SPL_BINARY} ${B}/${SPL_BINARY}
+do_deploy_append() {
+    install ${B}/spl/sunxi-spl-with-ecc.bin ${DEPLOYDIR}/sunxi-spl-with-ecc.bin
 }
 
 COMPATIBLE_MACHINE = "chip"
