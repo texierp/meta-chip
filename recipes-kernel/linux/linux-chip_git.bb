@@ -15,7 +15,6 @@ SRCREV ?= "934f732e5c17e692a1b0de68e147ea87532847b8"
 BRANCH ?= "debian/4.4.13-ntc-mlc"
 SRC_URI = "git://github.com/NextThingCo/CHIP-linux.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
-           file://0001-Update-dts.patch \
           "
 
 S = "${WORKDIR}/git"
