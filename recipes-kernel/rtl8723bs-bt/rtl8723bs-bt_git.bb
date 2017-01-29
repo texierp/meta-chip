@@ -1,5 +1,5 @@
 SUMMARY = "BS realtek BT"
-# /sbin/rtk_hciattach -n -s 115200 $TTY_RTL8732BS rtk_h5 2>&1 | logger -t rtk_hciattach &
+# /usr/bin/rtk_hciattach -n -s 115200 $TTY_RTL8732BS rtk_h5 2>&1 | logger -t rtk_hciattach &
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://hci_h4.c;beginline=5;endline=22;md5=d6e1c32aaea6d005ca63b785763df568"
 
@@ -9,6 +9,8 @@ SRC_URI = "git://github.com/NextThingCo/rtl8723bs_bt.git;protocol=https;branch=d
 	   file://init-ble-interface.init \
 	   file://ble-up.sh \
           "
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 S = "${WORKDIR}/git"
 
@@ -20,12 +22,11 @@ do_compile() {
 
 do_install() {
 	install -d ${D}/lib/firmware/rtl_bt
-	install -d ${D}/sbin
 	install -d ${D}${bindir}
 	install -d ${D}${sysconfdir}/init.d/
 	
         install -m 0644 ${S}/rtlbt_* ${D}/lib/firmware/rtl_bt      
-        install -m 0755 ${S}/rtk_hciattach ${D}/sbin
+        install -m 0755 ${S}/rtk_hciattach ${D}${bindir}
         install -m 0755 ${WORKDIR}/ble-up.sh ${D}${bindir}
         install -m 0755 ${WORKDIR}/init-ble-interface.init ${D}${sysconfdir}/init.d/init-ble-interface
 }
