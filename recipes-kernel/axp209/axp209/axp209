@@ -72,9 +72,9 @@ do
 			for i in `seq 1 10`;
 			do
 				axp209_write_address 0x93 0x01
-				sleep .5
+				sleep 1
 				axp209_write_address 0x93 0x00
-				sleep .5
+				sleep 1
 			done
 			;;
 		--no-limit)
