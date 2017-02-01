@@ -1,0 +1,5 @@
+#!/bin/sh
+
+while [[ $(i2cget -f -y 0 0x34 0x30) -ne "03" ]]; do
+	axp209 --no-limit
+done
