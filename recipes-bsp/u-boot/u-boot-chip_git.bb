@@ -12,6 +12,7 @@ PV = "${UBOOT_VERSION}+git${SRCPV}"
 
 SRCREV ?= "ccd1de00d52ef6b09a2d0990d1bd9254ecc18f88"
 BRANCH ?= "production-mlc"
+
 SRC_URI = "git://github.com/NextThingCo/CHIP-u-boot.git;branch=${BRANCH}"
 S = "${WORKDIR}/git"
 
