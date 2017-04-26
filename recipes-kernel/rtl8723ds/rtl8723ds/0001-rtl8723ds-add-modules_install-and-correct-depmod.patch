@@ -1,0 +1,58 @@
+From 455f0c2815df0e2861c6b49fc0149c7b00474522 Mon Sep 17 00:00:00 2001
+From: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+Date: Wed, 26 Apr 2017 20:31:17 +0200
+Subject: [PATCH] rtl8723ds add modules_install and correct depmod
+
+Signed-off-by: Pierre-Jean TEXIER <pjtexier@amplitude-systemes.com>
+---
+ Makefile | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index be22b69..75dd8d0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,6 +7,8 @@ EXTRA_CFLAGS += -O1
+ #EXTRA_CFLAGS += -pedantic
+ #EXTRA_CFLAGS += -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
+ 
++INSTALL_MOD_PATH := $(PREFIX)
++
+ EXTRA_CFLAGS += -Wno-unused-variable
+ EXTRA_CFLAGS += -Wno-unused-value
+ EXTRA_CFLAGS += -Wno-unused-label
+@@ -1045,6 +1047,8 @@ MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
+ INSTALL_PREFIX :=
+ endif
+ 
++MODDESTDIR := $(PREFIX)/lib/modules/$(KERNELRELEASE)/kernel/drivers/net/wireless/
++
+ ifeq ($(CONFIG_PLATFORM_ACTIONS_ATM702X), y)
+ EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -DCONFIG_PLATFORM_ANDROID -DCONFIG_PLATFORM_ACTIONS_ATM702X
+ #ARCH := arm
+@@ -1848,17 +1852,20 @@ all: modules
+ 
+ modules:
+ 	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd)  modules
++	
++modules_install:
++	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd)  INSTALL_MOD_PATH=$(INSTALL_MOD_PATH) modules_install
+ 
+ strip:
+ 	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
+ 
+ install:
+ 	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
+-	/sbin/depmod -a ${KVER}
++	$(DEPMOD) -a ${KVER}
+ 
+ uninstall:
+ 	rm -f $(MODDESTDIR)/$(MODULE_NAME).ko
+-	/sbin/depmod -a ${KVER}
++	$(DEPMOD) -a ${KVER}
+ 
+ config_r:
+ 	@echo "make config"
+-- 
+1.9.1
+

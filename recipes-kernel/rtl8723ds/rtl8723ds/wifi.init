@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		echo -n "Starting 8723 Wifi ... "
+		modprobe 8723ds
+		### Quiet down kernel after known lockdep warning
+		echo 4 > /proc/sys/kernel/printk
+		echo "done."
+		;;
+	stop)
+		echo -n "Stopping 8723 Wifi ..."
+		modprobe -r 8723ds
+		echo "done."
+		;;
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+	*)
+		echo "usage: $0 {start|stop|restart}"
+		;;
+esac

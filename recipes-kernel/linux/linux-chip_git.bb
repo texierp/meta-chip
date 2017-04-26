@@ -3,7 +3,7 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-COMPATIBLE_MACHINE = "chip"
+COMPATIBLE_MACHINE = "(chip|chippro)"
 
 inherit kernel
 require recipes-kernel/linux/linux-dtb.inc
@@ -11,8 +11,11 @@ require recipes-kernel/linux/linux-dtb.inc
 LINUX_VERSION ?= "4.4.13"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-SRCREV ?= "934f732e5c17e692a1b0de68e147ea87532847b8"
-BRANCH ?= "debian/4.4.13-ntc-mlc"
+SRCREV_chip ?= "934f732e5c17e692a1b0de68e147ea87532847b8"
+SRCREV_chippro ?= "bce5de1cdc3667a2bc454219a0856b4f415b33f5"
+
+BRANCH_chip ?= "debian/4.4.13-ntc-mlc"
+BRANCH_chippro ?= "nextthing/4.4/chip"
 
 SRC_URI = "git://github.com/NextThingCo/CHIP-linux.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
