@@ -12,12 +12,16 @@ LINUX_VERSION ?= "4.4.13"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
 SRCREV_chip ?= "934f732e5c17e692a1b0de68e147ea87532847b8"
-SRCREV_chippro ?= "bce5de1cdc3667a2bc454219a0856b4f415b33f5"
+SRCREV_chippro ?= "00f3979422c26ed1e25b11307c982cff5476e172"
 
 BRANCH_chip ?= "debian/4.4.13-ntc-mlc"
-BRANCH_chippro ?= "nextthing/4.4/chip"
+BRANCH_chippro ?= "ntc-stable-4.4.y"
 
 SRC_URI = "git://github.com/NextThingCo/CHIP-linux.git;protocol=git;branch=${BRANCH} \
+           file://defconfig \
+          "
+          https://
+SRC_URI_chippro = "git://github.com/NextThingCo/linux.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
           "
 
