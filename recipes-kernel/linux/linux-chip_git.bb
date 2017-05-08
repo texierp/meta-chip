@@ -20,7 +20,7 @@ BRANCH_chippro ?= "ntc-stable-4.4.y"
 SRC_URI = "git://github.com/NextThingCo/CHIP-linux.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
           "
-          https://
+          
 SRC_URI_chippro = "git://github.com/NextThingCo/linux.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
           "
