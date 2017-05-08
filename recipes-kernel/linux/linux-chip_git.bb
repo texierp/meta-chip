@@ -12,7 +12,7 @@ LINUX_VERSION ?= "4.4.13"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
 SRCREV_chip ?= "934f732e5c17e692a1b0de68e147ea87532847b8"
-SRCREV_chippro ?= "00f3979422c26ed1e25b11307c982cff5476e172"
+SRCREV_chippro ?= "5dd2b5de11b0b6be0cc4e38b93b6c4968c4fff7e"
 
 BRANCH_chip ?= "debian/4.4.13-ntc-mlc"
 BRANCH_chippro ?= "ntc-stable-4.4.y"
