@@ -53,7 +53,9 @@ To build a machine supported by this BSP layer follow the next steps:
 1. source poky/oe-init-build-env chip-build
 2. Add needed layer to bblayers.conf:
     - meta-chip
-3  Set MACHINE to "chip" in local.conf
+3  Set MACHINE in local.conf to one of the supported boards
+    - chip
+    - chippro
 4. bitbake chip-hwup-image
 
 II. Flashing a C.H.I.P. board
