@@ -30,7 +30,7 @@ EXTRA_OEMAKE += " \
     PREFIX=${D} \
 "
 
-do_install() {
+do_install_append() {
 	install -d ${D}${sysconfdir}/init.d/
 	
         install -m 0755 ${WORKDIR}/wifi.init ${D}${sysconfdir}/init.d/wifi
