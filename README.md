@@ -31,11 +31,13 @@ To build a machine supported by this BSP layer follow the next steps:
 $: git clone https://github.com/NextThingCo/CHIP-SDK.git
 $: cd CHIP-SDK
 $ ./setup_ubuntu1404.sh
+```
 
 2. NAND Image creation :	
 ```
 $: ./chip-create-nand-images.sh <patch to>/chip-build/tmp/work/chip-poky-linux-gnueabi/u-boot-chip/2016.01*/git <patch to>/chip-build/tmp/deploy/images/chip/<image>.tar my-chip-image 
 ```
+
 3. Flashing (Fastboot) :
 ```
 $: sudo chown -R username:username my-chip-image/ 
