@@ -1,4 +1,4 @@
-# Customization of init-ifupdown (meta-estei)
+# Customization of init-ifupdown (meta-chip)
 
 # Files directory
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
