@@ -41,7 +41,24 @@ To start a simple image build :
 $: cd sources
 $: export TEMPLATECONF="$PWD/meta-chip/conf"
 $: source poky/oe-init-build-env chip-build
-$: MACHINE=chip chip-hwup-image
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    chip-hwup-image
+    meta-toolchain-qt5
+
+You can also run generated qemu images with a command like 'runqemu qemuarm'
+   ____   _   _   ___   ____  
+  / ___| | | | | |_ _| |  _ \ 
+ | |     | |_| |  | |  | |_) |
+ | |___ _|  _  |_ | | _|  __/ 
+  \____(_)_| |_(_)___(_)_|       
+``` 
+```  
+$: MACHINE=chip bitbake chip-hwup-image
 ```
 
 ### 2. Flashing a C.H.I.P. board
