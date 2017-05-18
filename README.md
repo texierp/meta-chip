@@ -65,8 +65,7 @@ $: MACHINE=chip bitbake chip-hwup-image
 
 1. Clone SDK :
 ```
-$: git clone https://github.com/NextThingCo/CHIP-SDK.git
-$: cd CHIP-SDK
+$: cd SDK/CHIP-SDK
 $ ./setup_ubuntu1404.sh
 ```
 
