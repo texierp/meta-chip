@@ -1,0 +1,11 @@
+Common targets are:
+    chip-hwup-image
+    meta-toolchain-qt5
+
+You can also run generated qemu images with a command like 'runqemu qemuarm'
+   ____   _   _   ___   ____  
+  / ___| | | | | |_ _| |  _ \ 
+ | |     | |_| |  | |  | |_) |
+ | |___ _|  _  |_ | | _|  __/ 
+  \____(_)_| |_(_)___(_)_|       
+                      
