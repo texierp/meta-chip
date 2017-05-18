@@ -14,15 +14,35 @@ Please see the corresponding sections below for details.
 
 ### 1. Building the meta-chip BSP layer
 
-To build a machine supported by this BSP layer follow the next steps:
+To get the BSP you need to have repo installed and use it as:
 
-1. source poky/oe-init-build-env chip-build
-2. Add needed layer to bblayers.conf:
-    - meta-chip
-3. Set MACHINE in local.conf to one of the supported boards
-    - chip
-    - chippro
-4. bitbake chip-hwup-image
+1. Install the repo utility:
+```
+$: mkdir ~/bin
+$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$: chmod a+x ~/bin/repo
+```
+
+2. Download the BSP source:
+
+```
+$: PATH=${PATH}:~/bin
+$: mkdir chip-bsp
+$: cd chip-bsp
+$: repo init -u https://github.com/texierp/yocto-chip-bsp -b master
+$: repo sync
+```
+
+At the end of the commands you have every metadata you need to start work with.
+
+To start a simple image build :
+
+```
+$: cd sources
+$: export TEMPLATECONF="$PWD/meta-chip/conf"
+$: source poky/oe-init-build-env chip-build
+$: MACHINE=chip chip-hwup-image
+```
 
 ### 2. Flashing a C.H.I.P. board
 
